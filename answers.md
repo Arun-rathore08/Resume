@@ -47,3 +47,28 @@ def my_view(request):
 
         Yes, by default Django signals run in the same database transaction as the caller. This means that if a signal is triggered during a database operation (like saving a model), the signal's receiver function is executed as part of the same transaction. If the transaction is rolled back, the effects of the signal (if any) are also rolled back.
         In the  above example, the post_save signal runs within the same transaction. If an error occurs within the transaction.atomic() block, the signal effects will also be rolled back.
+
+
+## Task :
+
+```
+ class Rectangle:
+    def __init__(self, length: int, width: int):
+        self.length = length
+        self.width = width
+
+    # To allow iteration over the instance
+    def __iter__(self):
+        yield {'length': self.length}
+        yield {'width': self.width}
+
+# Example usage:
+rect = Rectangle(10, 5)
+for dimension in rect:
+    print(dimension)
+
+```
+
+Explanation:
+          - The __init__ method initializes the length and width attributes.
+          - The __iter__ method makes the class iterable, yielding the required dictionaries in sequence. First, it yields the length, then the width.
